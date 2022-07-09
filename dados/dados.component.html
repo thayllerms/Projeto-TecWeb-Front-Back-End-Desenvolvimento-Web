@@ -1,0 +1,37 @@
+<div class="row justify-content-md-center mt-5">
+    <div class="col-6 align-self-center">
+        <h1>Dados-Pessoais</h1>
+    </div>
+    <div class="col-2 align-self-center" align="end">
+        <button mat-stroked-button class="float-right" color="primary" (click)="openNewDialog()">Adicionar</button>
+    </div>
+
+</div>
+
+<div class="row justify-content-md-center">
+    <div class="col-8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" width="100%">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>No.</th>
+                <td mat-cell *matCellDef="let dados">{{dados.id}}</td>
+            </ng-container>
+        
+            <ng-container matColumnDef="descricao_pessoal">
+                <th mat-header-cell *matHeaderCellDef>Descricao</th>
+                <td mat-cell *matCellDef="let dados">{{dados.descricao_pessoal}}</td>
+            </ng-container>
+        
+            <ng-container matColumnDef="acoes">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let dados" align="end">
+                    <button mat-stroked-button class="float-right" color="primary" (click)="openEditDialog(dados)">Editar</button>
+                    <button mat-stroked-button class="float-right" color="primary" (click)="excluir(dados)">Excluir</button>
+                </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let dados; columns: displayedColumns"></tr>
+        </table>
+    </div>
+</div>

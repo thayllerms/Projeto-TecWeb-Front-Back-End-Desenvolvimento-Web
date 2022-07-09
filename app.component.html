@@ -1,0 +1,14 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>Minha Melhor Versao App</span>
+    <div>
+      <a mat-button [routerLink]="'/alimento'">Alimentos</a>
+      <a mat-button [routerLink]="'/treinos'">Treinos</a>
+      <a mat-button [routerLink]="'/dados'">Dados Pessoais</a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

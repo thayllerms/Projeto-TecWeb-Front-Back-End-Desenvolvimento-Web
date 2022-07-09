@@ -1,0 +1,42 @@
+<div class="row justify-content-md-center mt-5">
+    <div class="col-6 align-self-center">
+        <h1>Treinos</h1>
+    </div>
+    <div class="col-2 align-self-center" align="end">
+        <button mat-stroked-button class="float-right" color="primary" (click)="openNewDialog()">Adicionar</button>
+    </div>
+
+</div>
+
+<div class="row justify-content-md-center">
+    <div class="col-8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" width="100%">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>No.</th>
+                <td mat-cell *matCellDef="let treinos">{{treinos.id}}</td>
+            </ng-container>
+        
+            <ng-container matColumnDef="exercicio">
+                <th mat-header-cell *matHeaderCellDef>Exercicio</th>
+                <td mat-cell *matCellDef="let treinos">{{treinos.exercicio}}</td>
+            </ng-container>
+        
+            <ng-container matColumnDef="descricao">
+                <th mat-header-cell *matHeaderCellDef>Descricao</th>
+                <td mat-cell *matCellDef="let treinos">{{treinos.descricao}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="acoes">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let treinos" align="end">
+                    <button mat-stroked-button class="float-right" color="primary" (click)="openEditDialog(treinos)">Editar</button>
+                    <button mat-stroked-button class="float-right" color="primary" (click)="excluir(treinos)">Excluir</button>
+                </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let treinos; columns: displayedColumns"></tr>
+        </table>
+    </div>
+</div>
